@@ -3,7 +3,8 @@ name: Comment Test Health
 on:
   repository_dispatch:
     types: [test_result]
-comment:
+jobs:
+ pr-comment:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v5
