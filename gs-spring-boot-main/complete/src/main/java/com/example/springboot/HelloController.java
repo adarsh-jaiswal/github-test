@@ -24,7 +24,7 @@ public class HelloController {
 
 		String jsonString = new Gson().toJson(obj, Map.class);
 		System.out.println(jsonString);
-		return "worked";
+		return "working";
 	}
 
 }
