@@ -2,20 +2,12 @@
 
 name: CI
 
-# Controls when the workflow will run
 on:
-  
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  pr-comment:
-    # The type of runner that the job will run on
+  comment:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/github-script@v5
         with:
@@ -25,5 +17,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Please chec test result!!'
+              body: 'Please change PR Title!!'
             })
