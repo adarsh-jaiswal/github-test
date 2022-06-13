@@ -1,0 +1,13 @@
+name: Scheduled test run
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger test run
+        run: echo "Trigger test run"
+
