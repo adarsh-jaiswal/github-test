@@ -3,8 +3,6 @@ name: Scheduled test run
 on:
   schedule:
     - cron: '*/2 * * * *' # Runs every 2 mins
-  branches:
-    - master
 
 jobs:
   test_schedule:
