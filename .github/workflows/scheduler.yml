@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger test run
-        if: github.ref == 'refs/heads/master'
         run: echo "Trigger test run"
       - name: Dump GitHub context
         env:
