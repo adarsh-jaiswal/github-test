@@ -2,7 +2,7 @@ name: swcond Scheduled test run
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/6 * * * *'
 
 jobs:
   test_schedule_again:
@@ -10,7 +10,4 @@ jobs:
     steps:
       - name: Trigger test run
         run: echo "Trigger test run master"
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT" 
+     
