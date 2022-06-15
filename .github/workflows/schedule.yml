@@ -1,0 +1,16 @@
+name: Test run
+
+on:
+  schedule:
+    - cron: '*/6 * * * *'
+
+jobs:
+  test_schedule_again:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger test run
+        run: echo "Trigger test run master"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
