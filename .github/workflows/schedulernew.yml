@@ -1,11 +1,11 @@
-name: Scheduled test run
+name: swcond Scheduled test run
 
 on:
   schedule:
     - cron: '*/10 * * * *'
 
 jobs:
-  test_schedule:
+  test_schedule_again:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger test run
