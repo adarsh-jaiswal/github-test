@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: Trigger test run
         run: echo "Trigger test run"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT" 
