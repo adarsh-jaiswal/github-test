@@ -3,8 +3,11 @@ name: Master workflowui
 on:
   workflow_dispatch:
     inputs:
-      commit-hash:
+      commit_hash:
         description: 'Commit hash'
+        required: true
+      pr_number:
+        description: 'Pull request number'
         required: true
 
 jobs:
@@ -14,4 +17,4 @@ jobs:
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: echo ${{ inputs.commit-hash }}
+          run: echo "$inputs.commit_hash"
