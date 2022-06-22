@@ -3,8 +3,8 @@ name: Master workflowui
 on:
   workflow_dispatch:
     inputs:
-      pr-number:
-        description: 'Pull Request Number'
+      commit-hash:
+        description: 'Commit hash'
         required: true
 
 jobs:
@@ -14,10 +14,4 @@ jobs:
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: ${{ inputs.pr-number }},
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'In master. Please check test result at ...!!'
-            })
+          script: echo ${{ inputs.commit-hash }}
