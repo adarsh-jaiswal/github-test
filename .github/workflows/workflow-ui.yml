@@ -1,0 +1,23 @@
+name: Test Github UI
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'Pull Request Number'
+        required: true
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ inputs.pr-number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Triggered from UI, Please check test result at ...!!'
+            })
